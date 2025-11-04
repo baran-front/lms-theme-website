@@ -34,8 +34,12 @@
 }
 
 @layer base {
+  * {
+    @apply border-background-thin;
+  }
+
   html {
-    @apply font-modam bg-background text-foreground border-background-thin;
+    @apply font-modam bg-background text-foreground;
   }
 }
 
@@ -114,6 +118,10 @@
   --btn-color: var(--color-primary);
 
   @apply h-10 px-3 rounded-full transition-all f-center gap-1.5;
+
+  svg {
+    @apply size-5;
+  }
 }
 
 @utility btn-outline {
@@ -127,9 +135,33 @@
   }
 }
 
-@utility btn-link {
+@utility btn-fill {
+  @apply text-background;
+
+  background-color: var(--btn-color);
+
   &:hover {
-    color: var(--btn-color);
+    background-color: color-mix(in srgb, var(--btn-color) 90%, transparent);
   }
+}
+/* --- */
+
+/* Custom utilities */
+.slick-arrow {
+  @apply before:text-primary;
+
+  display: none !important;
+}
+
+.slick-dots li button {
+  @apply size-3 bg-foreground
+}
+
+.slick-dots li.slick-active button {
+  @apply w-10
+}
+
+.slick-dots li button::before {
+  content: "";
 }
 /* --- */

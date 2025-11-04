@@ -4,7 +4,7 @@ import Link from "next/link";
 function Header() {
   return (
     <header className="wrapper h-20 f-between">
-      <p className="font-modam-bold">
+      <p className="font-modam-bold text-lg">
         <span className="text-primary">ویرالرن</span> استودیو
       </p>
 
