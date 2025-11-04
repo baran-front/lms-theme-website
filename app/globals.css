@@ -1,26 +1,135 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@font-face {
+  font-family: "modam";
+  font-display: swap;
+  src: url("/fonts/modam/modam-regular.woff") format("woff");
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+@font-face {
+  font-family: "modam-medium";
+  font-display: swap;
+  src: url("/fonts/modam/modam-medium.woff") format("woff");
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@font-face {
+  font-family: "modam-bold";
+  font-display: swap;
+  src: url("/fonts/modam/modam-bold.woff") format("woff");
+}
+
+@theme {
+  --font-*: initial;
+  --font-modam: "modam";
+  --font-modam-medium: "modam-medium";
+  --font-modam-bold: "modam-bold";
+
+  --color-background: #141414;
+  --color-background-thin: #1e1e1e;
+  --color-background-thick: #0d0d0d;
+  --color-foreground: #ffffff;
+  --color-foreground-mute: #606060;
+  --color-primary: #bce356;
+  --color-danger: #f84646;
+}
+
+@layer base {
+  html {
+    @apply font-modam bg-background text-foreground border-background-thin;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Layout utilities */
+@utility wrapper {
+  @apply w-full px-6 lg:px-8 max-w-7xl mx-auto;
 }
+
+@utility card {
+  @apply bg-background-thin rounded-lg p-3;
+}
+/* --- */
+
+/* Flex utilities */
+@utility f-align {
+  @apply flex items-center;
+}
+
+@utility f-center {
+  @apply flex items-center justify-center;
+}
+
+@utility f-between {
+  @apply flex items-center justify-between;
+}
+
+@utility f-around {
+  @apply flex items-center justify-around;
+}
+
+@utility f-evenly {
+  @apply flex items-center justify-evenly;
+}
+
+@utility f-end {
+  @apply flex items-center justify-end;
+}
+
+@utility f-col {
+  @apply flex flex-col;
+}
+
+@utility f-col-center {
+  @apply flex flex-col items-center;
+}
+
+@utility f-col-between {
+  @apply flex flex-col items-center justify-between;
+}
+
+@utility f-col-around {
+  @apply flex flex-col items-center justify-around;
+}
+
+@utility f-col-evenly {
+  @apply flex flex-col items-center justify-evenly;
+}
+
+@utility f-col-end {
+  @apply flex flex-col justify-end;
+}
+/* --- */
+
+/* Typography utilities */
+@utility heading {
+  @apply font-modam-bold text-3xl;
+}
+
+@utility title {
+  @apply font-modam-medium text-xl;
+}
+/* --- */
+
+/* Button utilities */
+@utility btn {
+  --btn-color: var(--color-primary);
+
+  @apply h-10 px-3 rounded-full transition-all f-center gap-1.5;
+}
+
+@utility btn-outline {
+  @apply border;
+
+  color: var(--btn-color);
+  border-color: var(--btn-color);
+
+  &:hover {
+    background-color: color-mix(in srgb, var(--btn-color) 5%, transparent);
+  }
+}
+
+@utility btn-link {
+  &:hover {
+    color: var(--btn-color);
+  }
+}
+/* --- */
