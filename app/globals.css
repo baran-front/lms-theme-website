@@ -153,12 +153,20 @@
   display: none !important;
 }
 
+.slick-dots li {
+  @apply size-2! transition-all;
+}
+
 .slick-dots li button {
-  @apply size-3 bg-foreground
+  @apply size-full! bg-foreground/10 rounded-full! hover:bg-foreground/20;
+}
+
+.slick-dots li.slick-active {
+  @apply w-6!;
 }
 
 .slick-dots li.slick-active button {
-  @apply w-10
+  @apply bg-foreground;
 }
 
 .slick-dots li button::before {
