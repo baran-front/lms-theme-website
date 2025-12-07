@@ -48,8 +48,24 @@
   @apply w-full px-6 lg:px-8 max-w-7xl mx-auto;
 }
 
+@utility free-card {
+  @apply bg-background-thin rounded-2xl;
+}
 @utility card {
-  @apply bg-background-thin rounded-lg p-3;
+  @apply bg-background-thin rounded-2xl p-3;
+}
+
+@utility gradient-cart {
+  @apply bg-transparent bg-linear-to-t from-transparent to-background-thin;
+}
+
+@utility no-scrollbar {
+  /* Hide scrollbar for all browsers */
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none; /* Chrome, Safari and Opera */
 }
 /* --- */
 
@@ -87,15 +103,15 @@
 }
 
 @utility f-col-between {
-  @apply flex flex-col items-center justify-between;
+  @apply flex flex-col justify-between;
 }
 
 @utility f-col-around {
-  @apply flex flex-col items-center justify-around;
+  @apply flex flex-col justify-around;
 }
 
 @utility f-col-evenly {
-  @apply flex flex-col items-center justify-evenly;
+  @apply flex flex-col justify-evenly;
 }
 
 @utility f-col-end {
@@ -111,17 +127,38 @@
 @utility title {
   @apply font-modam-medium text-xl;
 }
+
+@utility font-stroke {
+  @apply font-modam-bold text-transparent;
+
+  -webkit-text-stroke-width: 0.2px;
+  -webkit-text-stroke-color: var(--color-foreground);
+}
 /* --- */
 
 /* Button utilities */
 @utility btn {
   --btn-color: var(--color-primary);
+  --btn-h: calc(var(--spacing) * 10);
+  --btn-px: calc(var(--spacing) * 3);
+  --btn-svg: calc(var(--spacing) * 5);
 
-  @apply h-10 px-3 rounded-full transition-all f-center gap-1.5;
+  @apply rounded-full transition-all f-center;
+
+  height: var(--btn-h);
+  padding: 0 var(--btn-px);
+  gap: calc(var(--btn-px) / 2);
 
   svg {
-    @apply size-5;
+    width: var(--btn-svg);
+    height: var(--btn-svg);
   }
+}
+
+@utility btn-sm {
+  --btn-h: calc(var(--spacing) * 9);
+  --btn-px: calc(var(--spacing) * 2);
+  --btn-svg: calc(var(--spacing) * 4);
 }
 
 @utility btn-outline {
@@ -171,5 +208,49 @@
 
 .slick-dots li button::before {
   content: "";
+}
+/* --- */
+
+/* Animations */
+@keyframes infinite-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+@utility infinite-scroll-container {
+  @apply overflow-hidden;
+
+  > div {
+    @apply flex gap-3;
+    animation: infinite-scroll 10s linear infinite;
+    will-change: transform;
+  }
+}
+
+@keyframes infinite-scroll-reverse {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@utility infinite-scroll-container-reverse {
+  @apply overflow-hidden;
+
+  > div {
+    @apply flex gap-3;
+    animation: infinite-scroll-reverse 10s linear infinite;
+    will-change: transform;
+  }
+}
+/* --- */
+
+/* Glow effect */
+.glow-blob-bg-gradient-radial {
+  background: radial-gradient(circle, var(--color-primary) 0%, transparent 70%);
 }
 /* --- */

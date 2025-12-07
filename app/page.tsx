@@ -2,10 +2,11 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowLeftIcon, ChevronLeftIcon } from "lucide-react";
+import { AnvilIcon, ArrowLeftIcon, CircleStarIcon, ClockIcon, TrendingUpIcon, UsersIcon } from "lucide-react";
 import Slider from "react-slick";
 
 import ShadowDiv from "@/components/modules/shadowDiv/shadowDiv";
+import ProductsCarousel from "@/components/templates/productsCarousel/productsCarousel";
 
 function Page() {
   return (
@@ -91,7 +92,7 @@ function Page() {
       <div className="wrapper f-col-center gap-5 mt-40">
         <ShadowDiv>{"< مهارت های برنامه نویسی />"}</ShadowDiv>
         <p className="heading">هر مهارتی که دنبال هستین اینجاست!</p>
-        <p>
+        <p className="text-foreground-mute">
           ویرالرن استودیو بزرگ ترین و کامل ترین آموزشگاه برنامه نویسی می باشد که
           با بهترین اساتید شما را به جمع برترین ها اضافه میکنند
         </p>
@@ -111,6 +112,101 @@ function Page() {
             </div>
           ))}
         </Slider>
+      </div>
+
+      <div className="wrapper mt-40">
+        <ShadowDiv>{"< لیست پکیج های آموزشی />"}</ShadowDiv>
+        <div className="f-between gap-3 mt-5">
+          <h3 className="heading">جذاب ترین پکیج های آموزشی</h3>
+
+          <Link className="btn btn-outline" href={"/"}>
+            <span>
+              مشاهده همه
+            </span>
+            <ArrowLeftIcon />
+          </Link>
+        </div>
+        <ProductsCarousel />
+      </div>
+
+      <div className="wrapper mt-40">
+        <ShadowDiv>{"< لیست پکیج های آموزشی />"}</ShadowDiv>
+        <div className="f-between gap-3 mt-5">
+          <h3 className="heading">جذاب ترین پکیج های آموزشی</h3>
+          <ShadowDiv color="danger">
+            <span>12:56:25</span>
+            <ClockIcon />
+          </ShadowDiv>
+          <Link className="btn btn-outline mr-auto" href={"/"}>
+            <span>
+              مشاهده همه
+            </span>
+            <ArrowLeftIcon />
+          </Link>
+        </div>
+        <ProductsCarousel />
+      </div>
+
+      <div className="wrapper f-col-center gap-5 mt-40">
+        <ShadowDiv>{"< خدمات و ویژگی ها />"}</ShadowDiv>
+        <p className="heading">خدمات و سرویس هایی که نظیرش را نخواهید دید !</p>
+        <p className="text-foreground-mute">
+          استودیو ویرالرن افتخار این را دارد که بهترین و شگفت انگیز ترین سرویس هایی که کمک کننده مسیر شما هستند را ارائه میکند .
+        </p>
+
+        <div className="grid grid-cols-3 gap-6 mt-5">
+          <div className="card space-y-4 row-span-2 ring-12 inset-shadow-sm inset-shadow-foreground/10 ring-background-thick">
+            <div className="bg-linear-to-t from-transparent to-primary rounded-xl size-12.5 f-center">
+              <div className="size-12 rounded-xl bg-background text-primary f-center">
+                <UsersIcon />
+              </div>
+            </div>
+            <p>هرجایی از دنیا باشی</p>
+            <p className="heading">ویرالرن همیشه همراهته</p>
+            <p className="text-foreground-mute">
+              لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان....
+            </p>
+          </div>
+          <div className="card col-span-2 space-y-3">
+            <div className="bg-linear-to-t from-transparent to-primary rounded-xl size-12.5 f-center">
+              <div className="size-12 rounded-xl bg-background text-primary f-center">
+                <TrendingUpIcon />
+              </div>
+            </div>
+            <p className="heading">
+              <span className="text-base font-modam">قدم به قدم همراه شما</span> تا قله موفقیت شغلی
+            </p>
+            <p className="text-foreground-mute w-1/2">
+              لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان....
+            </p>
+          </div>
+          <div className="card space-y-3">
+            <div className="bg-linear-to-t from-transparent to-primary rounded-xl size-12.5 f-center">
+              <div className="size-12 rounded-xl bg-background text-primary f-center">
+                <CircleStarIcon />
+              </div>
+            </div>
+            <p className="heading">
+              <span className="text-base font-modam inline-block">بهترین</span> اساتید همراه شما!
+            </p>
+            <p className="text-foreground-mute">
+              لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان....
+            </p>
+          </div>
+          <div className="card ring-12 inset-shadow-sm f-col-evenly inset-shadow-foreground/10 ring-background-thick">
+            <div className="bg-linear-to-t from-transparent to-primary rounded-xl size-12.5 f-center">
+              <div className="size-12 rounded-xl bg-background text-primary f-center">
+                <AnvilIcon />
+              </div>
+            </div>
+            <p className="heading">
+              <span className="text-base font-modam inline-block">بروزترین</span> فریم‌وورک ها در مسیر
+            </p>
+            <p className="text-foreground-mute">
+              لورم ایپسوم متن ساختگی با تولید سادگی...
+            </p>
+          </div>
+        </div>
       </div>
     </>
   );
